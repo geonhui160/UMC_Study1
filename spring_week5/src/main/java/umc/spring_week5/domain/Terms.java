@@ -4,7 +4,6 @@ import lombok.*;
 import umc.spring_week5.domain.common.BaseEntity;
 import umc.spring_week5.domain.mapping.MemberAgree;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
