@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import umc.study.domain.common.BaseEntity;
 
 import jakarta.persistence.*;
@@ -18,10 +19,13 @@ public class Store extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length =50)
     private String name;
 
+    @Column(nullable = false,length =50)
     private String address;
 
+    @ColumnDefault("0")
     private Float score;
 
     @ManyToOne(fetch = FetchType.LAZY)
