@@ -47,4 +47,13 @@ public class Review extends BaseEntity {
         this.store = store;
         store.getReviewList().add(this);
     }
+
+    public static Review create(String title, Float score, Member member, Store store) {
+        return Review.builder()
+                .title(title)
+                .score(score)
+                .member(member)
+                .store(store)
+                .build();
+    }
 }
