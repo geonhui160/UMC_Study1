@@ -8,7 +8,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 
-public class SwaggerConfig {
+public class SwaggerConfig {//http://localhost:8081/swagger-ui/index.html#/
     @Bean
     public OpenAPI UMCstudyAPI() {
         Info info = new Info()
@@ -34,3 +34,4 @@ public class SwaggerConfig {
                 .components(components);
     }
 }
+
