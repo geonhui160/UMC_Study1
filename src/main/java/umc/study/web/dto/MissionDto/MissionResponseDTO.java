@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import umc.study.web.dto.MemberMissionDto.MemberMissionResponseDTO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -47,6 +48,29 @@ public class MissionResponseDTO {
     @AllArgsConstructor
     public static class MissionPreViewListDTO{
         List<MissionsPreViewDTO> missionList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MemberMissionPreViewDTO{
+        Long missionId;
+        LocalDate deadline;
+        String missionSpec;
+        int reward;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class myOngoingMissionListDTO{
+        List<MemberMissionResponseDTO.MemberMissionPreViewDTO> memberMissionList;
         Integer listSize;
         Integer totalPage;
         Long totalElements;

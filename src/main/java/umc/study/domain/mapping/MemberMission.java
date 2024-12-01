@@ -22,11 +22,11 @@ public class MemberMission extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MissionStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
     @JoinColumn(name = "mission_id")
     private Mission mission;
 }
