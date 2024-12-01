@@ -1,4 +1,4 @@
-package umc.study.service.MemberService;
+package umc.study.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -9,26 +9,19 @@ import umc.study.domain.Member;
 import umc.study.domain.Review;
 import umc.study.repository.MemberRepository.MemberRepository;
 import umc.study.repository.ReviewRepository.ReviewRepository;
-
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberQueryServiceImpl implements MemberQueryService{
-
-    private final MemberRepository memberRepository;
+public class ReviewQueryServiceImpl implements ReviewQueryService{
+    private final MemberRepository memberrepository;
     private final ReviewRepository reviewRepository;
 
     @Override
-    public Optional<Member> findMember(Long id) {
-        return memberRepository.findById(id);
-    }
+    public Page<Review> getMyReviews(Long memberId, Integer page) {
+        Member member = memberrepository.findById(memberId).get();
 
-    @Override
-    public Page<Review> getmyReviewList(Long memberId, Integer page) {
-        Member member = memberRepository.findById(memberId).orElseThrow();
-        return reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
-    }
+        Page<Review> reviews = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
 
+        return reviews;
+    }
 }
